@@ -1,6 +1,6 @@
 import { OptionsWrapper } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ onClick }) => {
+const FeedbackOptions = ({ onClick }) => {
   return (
     <OptionsWrapper>
       <button onClick={() => onClick('good')}>Good</button>
@@ -9,3 +9,5 @@ export const FeedbackOptions = ({ onClick }) => {
     </OptionsWrapper>
   );
 };
+
+export default FeedbackOptions;

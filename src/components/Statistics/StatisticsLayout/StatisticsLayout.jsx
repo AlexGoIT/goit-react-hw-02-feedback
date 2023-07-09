@@ -1,6 +1,6 @@
 import { StatisticsWrapper } from './StatisticsLayout.styled';
 
-export const StatisticsLayout = ({ title, children }) => {
+const StatisticsLayout = ({ title, children }) => {
   return (
     <StatisticsWrapper>
       <h2>{title}</h2>
@@ -8,3 +8,5 @@ export const StatisticsLayout = ({ title, children }) => {
     </StatisticsWrapper>
   );
 };
+
+export default StatisticsLayout;

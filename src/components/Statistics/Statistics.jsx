@@ -1,16 +1,10 @@
 import PropTypes from 'prop-types';
 
 import { Box } from './Statistics.styled';
-import { StatisticsLayout } from './StatisticsLayout/StatisticsLayout';
-import { Notification } from './Notification/Notification';
+import StatisticsLayout from './StatisticsLayout/StatisticsLayout';
+import Notification from './Notification/Notification';
 
-export const Statistics = ({
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-}) => {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <StatisticsLayout title="Statistics">
       {total() === 0 ? (
@@ -27,6 +21,8 @@ export const Statistics = ({
     </StatisticsLayout>
   );
 };
+
+export default Statistics;
 
 Statistics.propTypes = {
   good: PropTypes.number,

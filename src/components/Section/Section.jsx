@@ -1,6 +1,6 @@
 import { PageSection } from './Section.styled';
 
-export const Section = ({ title, children }) => {
+const Section = ({ title, children }) => {
   return (
     <PageSection>
       <h1>{title}</h1>
@@ -8,3 +8,5 @@ export const Section = ({ title, children }) => {
     </PageSection>
   );
 };
+
+export default Section;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Section } from './Section/Section';
-import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
-import { Statistics } from './Statistics/Statistics';
+import Section from './Section/Section';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Statistics from './Statistics/Statistics';
 
 export class App extends Component {
   static propTypes = {
@@ -18,6 +18,10 @@ export class App extends Component {
     bad: 0,
   };
 
+  componentDidMount() {
+    document.title = 'HW-2 Feedback';
+  }
+
   onClick = option => {
     this.setState(prevState => ({
       [option]: prevState[option] + 1,
@@ -25,7 +29,9 @@ export class App extends Component {
   };
 
   countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+
+    return good + neutral + bad;
   };
 
   countPositiveFeedbackPercentage = () => {
