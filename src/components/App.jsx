@@ -1,21 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Section } from './Section/Section';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 
-export class App extends React.Component {
+export class App extends Component {
   static propTypes = {
     good: PropTypes.number,
     neutral: PropTypes.number,
     bad: PropTypes.number,
-  };
-
-  static defaultProps = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
   };
 
   state = {
@@ -41,16 +35,6 @@ export class App extends React.Component {
 
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
-
-  // isFeedback = () => {
-  //   if (this.countTotalFeedback() === 0) {
-  //     return <Notification message="No feedback given" />;
-  //   }
-
-  //   return (
-
-  //   )
-  // }
 
   render() {
     return (

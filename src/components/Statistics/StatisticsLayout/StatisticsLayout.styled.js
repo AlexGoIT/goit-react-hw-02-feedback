@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StatisticsWrapper = styled.div`
-  width: 200px;
+  /* width: 200px; */
 
   h2 {
     text-align: center;
