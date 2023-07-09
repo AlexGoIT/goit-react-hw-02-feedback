@@ -42,6 +42,16 @@ export class App extends React.Component {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
 
+  // isFeedback = () => {
+  //   if (this.countTotalFeedback() === 0) {
+  //     return <Notification message="No feedback given" />;
+  //   }
+
+  //   return (
+
+  //   )
+  // }
+
   render() {
     return (
       <Section title="Please leave feedback">

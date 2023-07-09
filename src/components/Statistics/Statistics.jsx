@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { StatisticsLayout } from './StatisticsLayout/StatisticsLayout';
-// import { StatisticsWrapper } from './Statistics.styled';
+import { Notification } from './Notification/Notification';
 
 export const Statistics = ({
   good,
@@ -12,11 +12,17 @@ export const Statistics = ({
 }) => {
   return (
     <StatisticsLayout title="Statistics">
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {total()}</p>
-      <p>positive: {positivePercentage()}%</p>
+      {total() === 0 ? (
+        <Notification message="No feedback given" />
+      ) : (
+        <>
+          <p>Good: {good}</p>
+          <p>Neutral: {neutral}</p>
+          <p>Bad: {bad}</p>
+          <p>Total: {total()}</p>
+          <p>positive: {positivePercentage()}%</p>
+        </>
+      )}
     </StatisticsLayout>
   );
 };
