@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { StatisticsWrapper } from './StatisticsLayout.styled';
 
 const StatisticsLayout = ({ title, children }) => {
@@ -10,3 +11,8 @@ const StatisticsLayout = ({ title, children }) => {
 };
 
 export default StatisticsLayout;
+
+StatisticsLayout.prototype = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.any,
+};

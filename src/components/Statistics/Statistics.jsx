@@ -20,7 +20,7 @@ const Statistics = ({ feedbackOptions }) => {
           <p>Good: {good}</p>
           <p>Neutral: {neutral}</p>
           <p>Bad: {bad}</p>
-          <p>Total: {totalFeedback ? totalFeedback : 0}</p>
+          <p>Total: {totalFeedback}</p>
           <p>
             Positive feedback: {positivePercentage ? positivePercentage : 0}%
           </p>
