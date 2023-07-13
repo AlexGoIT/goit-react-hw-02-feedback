@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import Section from './Section/Section';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
-import Statistics from './Statistics/Statistics';
+import Section from './Section';
+import FeedbackOptions from './FeedbackOptions';
+import Statistics from './Statistics';
 
 export class App extends Component {
-  static propTypes = {
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
-  };
-
   state = {
     good: 0,
     neutral: 0,
@@ -29,22 +22,13 @@ export class App extends Component {
   };
 
   render() {
-    const { good, neutral, bad } = this.state;
-
-    const totalFeedback = good + neutral + bad;
-    const totalFeedbackPercentage =
-      totalFeedback === 0 ? 0 : Math.round((good / totalFeedback) * 100);
-
     return (
       <Section title="Please leave feedback">
-        <FeedbackOptions onClick={this.onClick}></FeedbackOptions>
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={totalFeedback}
-          positivePercentage={totalFeedbackPercentage}
-        />
+        <FeedbackOptions
+          onClick={this.onClick}
+          feedbackOptions={this.state}
+        ></FeedbackOptions>
+        <Statistics feedbackOptions={this.state} />
       </Section>
     );
   }
