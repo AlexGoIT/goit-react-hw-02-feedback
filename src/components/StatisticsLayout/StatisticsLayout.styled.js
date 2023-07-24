@@ -4,6 +4,7 @@ export const StatisticsWrapper = styled.div`
   /* width: 200px; */
 
   h2 {
+    margin-block: 40px 20px;
     text-align: center;
   }
 

@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 
-import { Box } from './Statistics.styled';
-import StatisticsLayout from './StatisticsLayout';
-import Notification from './Notification';
+import { Box, Grid, ResultWrapper } from './Statistics.styled';
+import StatisticsLayout from '../StatisticsLayout';
+import Notification from '../Notification';
 
 const Statistics = ({ feedbackOptions }) => {
   const { good, neutral, bad } = feedbackOptions;
+  const optionsKey = Object.keys(feedbackOptions);
 
   const totalFeedback = good + neutral + bad;
   const positivePercentage =
@@ -17,13 +18,22 @@ const Statistics = ({ feedbackOptions }) => {
         <Notification message="No feedback given" />
       ) : (
         <Box>
-          <p>Good: {good}</p>
-          <p>Neutral: {neutral}</p>
-          <p>Bad: {bad}</p>
-          <p>Total: {totalFeedback}</p>
-          <p>
-            Positive feedback: {positivePercentage ? positivePercentage : 0}%
-          </p>
+          <Grid>
+            {optionsKey.map(key => {
+              return (
+                <div className="option-wrapper" key={key}>
+                  <p className="option-name">{key}</p>
+                  <p className="option-count">{feedbackOptions[key]}</p>
+                </div>
+              );
+            })}
+          </Grid>
+          <ResultWrapper>
+            <p>Total: {totalFeedback}</p>
+          </ResultWrapper>
+          <ResultWrapper>
+            <p>Positive feedback: {positivePercentage}%</p>
+          </ResultWrapper>
         </Box>
       )}
     </StatisticsLayout>
